@@ -1,6 +1,5 @@
 package ma.emsi.authMicroservice;
 
-import lombok.AllArgsConstructor;
 import ma.emsi.authMicroservice.config.AuthEntryPointJwt;
 import ma.emsi.authMicroservice.config.AuthTokenFilter;
 import ma.emsi.authMicroservice.service.UserDetailsServiceImpl;
