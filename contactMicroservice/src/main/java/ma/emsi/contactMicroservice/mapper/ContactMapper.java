@@ -22,11 +22,9 @@ public class ContactMapper {
         if(tagsId !=null) {
             List<TagResponse> tags = new ArrayList<>();
             for (Long t : tagsId) {
-                if(tagService.getById(t).isPresent()) {
-                    tags.add(tagService.getById(t).get());
-                }else{
-                    throw new NotFoundException("Tag doesnt exist with the ID : "+t);
-                }
+                TagResponse tag = tagService.getById(t)
+                        .orElseThrow(() -> new NotFoundException("Tag doesn't exist with the ID: " + t));
+                tags.add(tag);
             }
             return tags;
         }
