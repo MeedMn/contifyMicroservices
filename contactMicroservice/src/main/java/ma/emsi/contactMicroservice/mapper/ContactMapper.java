@@ -4,6 +4,7 @@ import ma.emsi.contactMicroservice.dto.ContactRequest;
 import ma.emsi.contactMicroservice.dto.ContactResponse;
 import ma.emsi.contactMicroservice.dto.TagResponse;
 import ma.emsi.contactMicroservice.entity.Contact;
+import ma.emsi.contactMicroservice.exceptions.NotFoundException;
 import ma.emsi.contactMicroservice.external.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,11 @@ public class ContactMapper {
         if(tagsId !=null) {
             List<TagResponse> tags = new ArrayList<>();
             for (Long t : tagsId) {
-                tags.add(tagService.getById(t).get());
+                if(tagService.getById(t).isPresent()) {
+                    tags.add(tagService.getById(t).get());
+                }else{
+                    throw new NotFoundException("Tag doesnt exist with the ID : "+t);
+                }
             }
             return tags;
         }
