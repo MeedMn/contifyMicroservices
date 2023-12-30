@@ -33,7 +33,6 @@ public class User {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.password = password;
-        this.authority = authority;
         this.email = email;
     }
 
