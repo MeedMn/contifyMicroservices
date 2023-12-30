@@ -12,7 +12,7 @@ public class JwtResponse {
     private String type = "Bearer";
     private UserInfos userInfos;
     private String authority;
-    public JwtResponse(String accessToken, UserInfos userInfos, String email, String authority) {
+    public JwtResponse(String accessToken, UserInfos userInfos, String authority) {
         this.accessToken = accessToken;
         this.userInfos=userInfos;
         this.authority = authority;
