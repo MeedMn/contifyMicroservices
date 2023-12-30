@@ -1,22 +1,24 @@
 package ma.emsi.contactMicroservice.mapper;
 
+import lombok.NoArgsConstructor;
 import ma.emsi.contactMicroservice.dto.ContactRequest;
 import ma.emsi.contactMicroservice.dto.ContactResponse;
 import ma.emsi.contactMicroservice.dto.TagResponse;
 import ma.emsi.contactMicroservice.entity.Contact;
 import ma.emsi.contactMicroservice.exceptions.NotFoundException;
 import ma.emsi.contactMicroservice.external.TagService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Component
+@NoArgsConstructor
 public class ContactMapper {
-    @Autowired
     TagService tagService;
-    public ContactMapper(){
+    public ContactMapper(TagService tagService) {
+        this.tagService = tagService;
     }
     private List<TagResponse> fromIdToTags(List<Long> tagsId){
         if(tagsId !=null) {
@@ -28,7 +30,7 @@ public class ContactMapper {
             }
             return tags;
         }
-        return null;
+        return Collections.emptyList();
     }
     public ContactResponse ContactToContactResponse(Contact contact){
         return ContactResponse.builder()

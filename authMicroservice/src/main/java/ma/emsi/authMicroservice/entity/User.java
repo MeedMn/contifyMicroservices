@@ -2,9 +2,6 @@ package ma.emsi.authMicroservice.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

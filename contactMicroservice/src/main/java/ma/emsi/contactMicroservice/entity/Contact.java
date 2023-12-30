@@ -1,7 +1,6 @@
 package ma.emsi.contactMicroservice.entity;
 
 import jakarta.persistence.*;
-import jakarta.ws.rs.DefaultValue;
 import lombok.*;
 
 import java.util.List;

@@ -36,7 +36,7 @@ public class TagService {
     public String delete(Long id) {
         Tag tag = tagRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Tag Not found with this ID : " + id));
-        tagRepository.deleteById(id);
+        tagRepository.delete(tag);
         return "Tag Deleted" ;
     }
     public List<TagResponse> getAll(){

@@ -42,7 +42,7 @@ public class ContactService {
     public String delete(Long id) {
         Contact contact = contactRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Contact Not found with this ID : " + id));
-        contactRepository.deleteById(id);
+        contactRepository.delete(contact);
         return "Contact Deleted" ;
     }
     public void addToFavorites(Long id){
@@ -71,7 +71,7 @@ public class ContactService {
     public String affectTagToContact(Long idContact,List<TagResponse> tags) throws NotFoundException{
         var contact = contactRepository.findById(idContact)
                 .orElseThrow(() -> new NotFoundException("Contact not found"));
-        if(tags != null && tags.size() > 0){
+        if(tags != null && !tags.isEmpty()){
             contact.getTags().addAll(tags.stream().map(t->t.getId()).toList());
             contactRepository.save(contact);
             return "Tags affected to Contact";
