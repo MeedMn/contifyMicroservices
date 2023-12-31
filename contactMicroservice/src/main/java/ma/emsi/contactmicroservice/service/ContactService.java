@@ -40,7 +40,8 @@ public class ContactService {
     public String delete(Long id) {
         Contact contact = contactRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Contact Not found with this ID : " + id));
-        contactRepository.delete(contact);
+        if(contact != null)
+            contactRepository.deleteById(id);
         return "Contact Deleted" ;
     }
     public void addToFavorites(Long id){

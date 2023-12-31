@@ -64,7 +64,7 @@ public class AuthController {
                     .body(new MessageResponse("Error: Username is already taken!"));
         }
         User user = new User(true,signUpRequest.getFullName(),signUpRequest.getAddress(),signUpRequest.getPhoneNumber(),encoder.encode(signUpRequest.getPassword()),signUpRequest.getEmail());
-        Authority userRole = roleRepository.findByAuthority(Role.USER)
+        Authority userRole = roleRepository.findByRole(Role.USER)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
         user.setAuthority(userRole);
         userRepository.save(user);
