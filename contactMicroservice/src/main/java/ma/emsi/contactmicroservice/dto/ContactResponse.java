@@ -18,7 +18,7 @@ public class ContactResponse {
     private String fullName ;
     private  String email ;
     private String phoneNumber ;
-    private String Address;
+    private String address;
     private  String imagePath;
     private List<TagResponse> tags;
     private boolean favorite;
