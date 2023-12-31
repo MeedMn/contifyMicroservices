@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TagMapper {
-    public TagResponse TagToTagResponse(Tag tag){
+    public TagResponse tagToTagResponse(Tag tag){
             return TagResponse.builder()
                 .id(tag.getId())
                 .name(tag.getName())
                 .build();
     }
-    public Tag TagRequestToTag(TagRequest tagRequest){
+    public Tag tagRequestToTag(TagRequest tagRequest){
         return Tag.builder()
                 .name(tagRequest.getName())
                 .build();

@@ -21,16 +21,16 @@ public class TagService {
     private final TagRepository tagRepository;
     private final TagMapper tagMapper;
     public TagResponse create(TagRequest tagRequest){
-        Tag tag = tagMapper.TagRequestToTag(tagRequest);
+        Tag tag = tagMapper.tagRequestToTag(tagRequest);
         tagRepository.save(tag);
-        return tagMapper.TagToTagResponse(tag);
+        return tagMapper.tagToTagResponse(tag);
     }
     public TagResponse update(Long id,TagRequest tagRequest){
         return tagRepository.findById(id)
                 .map(t->{
                     t.setName(tagRequest.getName());
                     tagRepository.save(t);
-                    return tagMapper.TagToTagResponse(t);
+                    return tagMapper.tagToTagResponse(t);
                 }).orElseThrow(()->new NotFoundException("Tag Not Found"));
     }
     public String delete(Long id) {
@@ -41,16 +41,16 @@ public class TagService {
     }
     public List<TagResponse> getAll(){
         List<Tag> tags = tagRepository.findAll();
-        return tags.stream().map(tagMapper::TagToTagResponse).toList();
+        return tags.stream().map(tagMapper::tagToTagResponse).toList();
     }
     public TagResponse getById(long id) {
         Tag tag = tagRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Tag not found"));
-        return tagMapper.TagToTagResponse(tag);
+        return tagMapper.tagToTagResponse(tag);
     }
     @Transactional(readOnly = true)
     public List<TagResponse> getByName(List<String> name){
         List<Tag> tags = tagRepository.findByNameIn(name);
-        return tags.stream().map(tagMapper::TagToTagResponse).toList();
+        return tags.stream().map(tagMapper::tagToTagResponse).toList();
     }
 }

@@ -32,24 +32,24 @@ public class ContactMapper {
         }
         return Collections.emptyList();
     }
-    public ContactResponse ContactToContactResponse(Contact contact){
+    public ContactResponse contactToContactResponse(Contact contact){
         return ContactResponse.builder()
                 .id(contact.getId())
                 .fullName(contact.getFullName())
                 .email(contact.getEmail())
                 .phoneNumber(contact.getPhoneNumber())
-                .Address(contact.getAddress())
+                .address(contact.getAddress())
                 .imagePath(contact.getImagePath())
                 .tags(fromIdToTags(contact.getTags()))
                 .favorite(contact.isFavorite())
                 .build();
     }
-    public Contact ContactRequestToContact(ContactRequest contactRequest){
+    public Contact contactRequestToContact(ContactRequest contactRequest){
         return Contact.builder()
                 .fullName(contactRequest.getFullName())
                 .email(contactRequest.getEmail())
                 .phoneNumber(contactRequest.getPhoneNumber())
-                .Address(contactRequest.getAddress())
+                .address(contactRequest.getAddress())
                 .imagePath(contactRequest.getImagePath())
                 .build();
     }
