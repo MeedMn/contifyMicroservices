@@ -52,8 +52,8 @@ class TagTest {
     @Test
     void testCreate() {
 
-        when(tagMapper.TagRequestToTag(tagRequest1)).thenReturn(tag1);
-        when(tagMapper.TagToTagResponse(tag1)).thenReturn(tagResponse1);
+        when(tagMapper.tagRequestToTag(tagRequest1)).thenReturn(tag1);
+        when(tagMapper.tagToTagResponse(tag1)).thenReturn(tagResponse1);
 
         TagResponse result = tagService.create(tagRequest1);
 
@@ -67,7 +67,7 @@ class TagTest {
 
         when(tagRepository.findById(1L)).thenReturn(java.util.Optional.of(tag1));
 
-        when(tagMapper.TagToTagResponse(tag1)).thenReturn(tagResponse1);
+        when(tagMapper.tagToTagResponse(tag1)).thenReturn(tagResponse1);
 
         TagResponse result = tagService.update(1L, tagRequest2);
 
@@ -115,8 +115,8 @@ class TagTest {
 
         when(tagRepository.findAll()).thenReturn(List.of(tag1, tag2));
 
-        when(tagMapper.TagToTagResponse(tag1)).thenReturn(tagResponse1);
-        when(tagMapper.TagToTagResponse(tag2)).thenReturn(tagResponse2);
+        when(tagMapper.tagToTagResponse(tag1)).thenReturn(tagResponse1);
+        when(tagMapper.tagToTagResponse(tag2)).thenReturn(tagResponse2);
 
         List<TagResponse> result = tagService.getAll();
 
@@ -128,7 +128,7 @@ class TagTest {
 
         when(tagRepository.findById(1L)).thenReturn(java.util.Optional.of(tag1));
 
-        when(tagMapper.TagToTagResponse(tag1)).thenReturn(tagResponse1);
+        when(tagMapper.tagToTagResponse(tag1)).thenReturn(tagResponse1);
 
         TagResponse result = tagService.getById(1L);
 
@@ -148,8 +148,8 @@ class TagTest {
 
         when(tagRepository.findByNameIn(List.of("Friend", "Family"))).thenReturn(List.of(tag1, tag2));
 
-        when(tagMapper.TagToTagResponse(tag1)).thenReturn(tagResponse1);
-        when(tagMapper.TagToTagResponse(tag2)).thenReturn(tagResponse2);
+        when(tagMapper.tagToTagResponse(tag1)).thenReturn(tagResponse1);
+        when(tagMapper.tagToTagResponse(tag2)).thenReturn(tagResponse2);
 
         List<TagResponse> result = tagService.getByName(List.of("Friend", "Family"));
 

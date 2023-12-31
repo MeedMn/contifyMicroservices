@@ -54,8 +54,8 @@ class ContactTest {
 
     @Test
     void testCreate() {
-        when(contactMapper.ContactRequestToContact(contactRequest1)).thenReturn(contact1);
-        when(contactMapper.ContactToContactResponse(contact1)).thenReturn(contactResponse1);
+        when(contactMapper.contactRequestToContact(contactRequest1)).thenReturn(contact1);
+        when(contactMapper.contactToContactResponse(contact1)).thenReturn(contactResponse1);
         ContactResponse result = contactService.create(contactRequest1);
         verify(contactRepository, times(1)).save(contact1);
 
@@ -65,7 +65,7 @@ class ContactTest {
     @Test
     void testUpdate() {
         when(contactRepository.findById(1L)).thenReturn(java.util.Optional.of(contact1));
-        when(contactMapper.ContactToContactResponse(contact1)).thenReturn(contactResponse1);
+        when(contactMapper.contactToContactResponse(contact1)).thenReturn(contactResponse1);
         ContactResponse result = contactService.update(1L, contactRequest2);
         verify(contactRepository, times(1)).save(contact1);
 
@@ -128,8 +128,8 @@ class ContactTest {
     @Test
     void testGetAll() {
         when(contactRepository.findAll()).thenReturn(List.of(contact1, contact2));
-        when(contactMapper.ContactToContactResponse(contact1)).thenReturn(contactResponse1);
-        when(contactMapper.ContactToContactResponse(contact2)).thenReturn(contactResponse2);
+        when(contactMapper.contactToContactResponse(contact1)).thenReturn(contactResponse1);
+        when(contactMapper.contactToContactResponse(contact2)).thenReturn(contactResponse2);
         List<ContactResponse> result = contactService.getAll();
 
         assertEquals(List.of(contactResponse1, contactResponse2), result);
@@ -138,7 +138,7 @@ class ContactTest {
     @Test
     void testGetAllFavorites() {
         when(contactRepository.findContactsByFavoriteIs(true)).thenReturn(List.of(contact2));
-        when(contactMapper.ContactToContactResponse(contact2)).thenReturn(contactResponse2);
+        when(contactMapper.contactToContactResponse(contact2)).thenReturn(contactResponse2);
         List<ContactResponse> result = contactService.getAllFavorites();
         assertEquals(List.of(contactResponse2), result);
     }
@@ -146,7 +146,7 @@ class ContactTest {
     @Test
     void testGetById() {
         when(contactRepository.findById(1L)).thenReturn(java.util.Optional.of(contact1));
-        when(contactMapper.ContactToContactResponse(contact1)).thenReturn(contactResponse1);
+        when(contactMapper.contactToContactResponse(contact1)).thenReturn(contactResponse1);
         ContactResponse result = contactService.getById(1L);
         assertEquals(contactResponse1, result);
     }
