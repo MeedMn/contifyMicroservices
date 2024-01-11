@@ -1,5 +1,6 @@
 package ma.emsi.contactmicroservice.mapper;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import ma.emsi.contactmicroservice.dto.ContactRequest;
 import ma.emsi.contactmicroservice.dto.ContactResponse;
@@ -14,12 +15,9 @@ import java.util.Collections;
 import java.util.List;
 
 @Component
-@NoArgsConstructor
+@AllArgsConstructor
 public class ContactMapper {
-    TagService tagService;
-    public ContactMapper(TagService tagService) {
-        this.tagService = tagService;
-    }
+    private final TagService tagService;
     private List<TagResponse> fromIdToTags(List<Long> tagsId){
         if(tagsId !=null) {
             List<TagResponse> tags = new ArrayList<>();
