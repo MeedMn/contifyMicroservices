@@ -1,0 +1,12 @@
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\exceptions\NotFoundException.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\external\TagService.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\config\WebClientConfig.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\repository\ContactRepository.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\dto\ContactRequest.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\dto\ContactResponse.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\ContactMicroserviceApplication.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\entity\Contact.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\controller\ContactController.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\service\ContactService.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\mapper\ContactMapper.java
+C:\Users\menfa\Desktop\Contify\contifyMicroservices\contactMicroservice\src\main\java\ma\emsi\contactmicroservice\dto\TagResponse.java

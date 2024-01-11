@@ -1,0 +1,16 @@
+ma\emsi\contactmicroservice\repository\ContactRepository.class
+ma\emsi\contactmicroservice\dto\ContactRequest.class
+ma\emsi\contactmicroservice\mapper\ContactMapper.class
+ma\emsi\contactmicroservice\dto\ContactResponse$ContactResponseBuilder.class
+ma\emsi\contactmicroservice\external\TagService.class
+ma\emsi\contactmicroservice\controller\ContactController.class
+ma\emsi\contactmicroservice\dto\ContactRequest$ContactRequestBuilder.class
+ma\emsi\contactmicroservice\dto\ContactResponse.class
+ma\emsi\contactmicroservice\entity\Contact$ContactBuilder.class
+ma\emsi\contactmicroservice\dto\TagResponse.class
+ma\emsi\contactmicroservice\service\ContactService.class
+ma\emsi\contactmicroservice\dto\TagResponse$TagResponseBuilder.class
+ma\emsi\contactmicroservice\entity\Contact.class
+ma\emsi\contactmicroservice\exceptions\NotFoundException.class
+ma\emsi\contactmicroservice\ContactMicroserviceApplication.class
+ma\emsi\contactmicroservice\config\WebClientConfig.class

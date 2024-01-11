@@ -1,0 +1,12 @@
+ma\emsi\tagmicroservice\dto\TagResponse$TagResponseBuilder.class
+ma\emsi\tagmicroservice\mapper\TagMapper.class
+ma\emsi\tagmicroservice\repository\TagRepository.class
+ma\emsi\tagmicroservice\dto\TagRequest.class
+ma\emsi\tagmicroservice\TagMicroserviceApplication.class
+ma\emsi\tagmicroservice\service\TagService.class
+ma\emsi\tagmicroservice\dto\TagResponse.class
+ma\emsi\tagmicroservice\entity\Tag.class
+ma\emsi\tagmicroservice\entity\Tag$TagBuilder.class
+ma\emsi\tagmicroservice\dto\TagRequest$TagRequestBuilder.class
+ma\emsi\tagmicroservice\exceptions\NotFoundException.class
+ma\emsi\tagmicroservice\controller\TagController.class
