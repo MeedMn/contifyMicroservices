@@ -19,7 +19,6 @@
         <module>discoveryService</module>
         <module>apiGateway</module>
         <module>authMicroservice</module>
-        <module>report-aggregate</module>
     </modules>
 
     <properties>
