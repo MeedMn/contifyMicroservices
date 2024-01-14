@@ -1,0 +1,18 @@
+server:
+  port: 8888
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka : true
+    service-url:
+      defaultZone: ${EUREKA_SERVER-ADDRESS:http://discovery-server:8761/eureka}
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    discovery:
+      enabled: true

@@ -1,0 +1,109 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - microservices-network
+
+  discovery-server:
+    build:
+      context: ./discoveryService
+    ports:
+      - "8761:8761"
+    depends_on:
+      - mysql
+    networks:
+      - microservices-network
+
+  api-gateway:
+    build:
+      context: ./apiGateway
+    ports:
+      - "8888:8888"
+    depends_on:
+      - mysql
+      - discovery-server
+    networks:
+      - microservices-network
+  auth-service:
+    build:
+      context: ./authMicroservice
+    ports:
+      - "8087:8087"
+    depends_on:
+      - mysql
+      - discovery-server
+      - api-gateway
+    networks:
+      - microservices-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/Contify_AuthDB?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
+      interval: 5s
+      timeout: 2s
+      retries: 100
+  contact-service:
+    build:
+      context: ./contactMicroservice
+    ports:
+      - "8088:8088"
+    depends_on:
+      - mysql
+      - discovery-server
+      - api-gateway
+    networks:
+      - microservices-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/Contify_ContactDB?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
+      interval: 5s
+      timeout: 2s
+      retries: 100
+
+  tag-service:
+    build:
+      context: ./tagMicroservice
+    ports:
+      - "8089:8089"
+    depends_on:
+      - mysql
+      - discovery-server
+      - api-gateway
+    networks:
+      - microservices-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/Contify_TagDB?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
+      interval: 5s
+      timeout: 2s
+      retries: 100
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge

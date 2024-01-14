@@ -1,7 +1,12 @@
-FROM openjdk:17
-WORKDIR /App
+FROM maven:3.8.4-openjdk-17 AS builder
+WORKDIR /app
+COPY ./src ./src
+COPY ./pom.xml .
+RUN mvn clean package
 
-COPY /target/discoveryService-1.0-SNAPSHOT.jar .
-
-
+FROM openjdk:17-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} discoveryService-1.0-SNAPSHOT.jar
 ENTRYPOINT ["java", "-jar" , "discoveryService-1.0-SNAPSHOT.jar"]
+
