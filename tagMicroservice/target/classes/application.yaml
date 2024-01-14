@@ -1,0 +1,26 @@
+server:
+  port: 8089
+spring:
+  cloud:
+    discovery:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3309/Contify_TagDB?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: tag-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka : true
+    service-url:
+      defaultZone: ${EUREKA_SERVER-ADDRESS:http://discovery-server:8761/eureka}
