@@ -20,7 +20,7 @@ public class ContactController {
     private final ContactService contactService;
     @GetMapping
     public ResponseEntity<String> testNgRok(){
-        return ResponseEntity.ok("You are inside contact with ngrok");
+        return ResponseEntity.ok("You are inside contact with ngrok 2");
     }
 
     @PostMapping("/addContact")
