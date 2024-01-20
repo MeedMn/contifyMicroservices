@@ -18,6 +18,11 @@ import java.util.List;
 @CrossOrigin
 public class ContactController {
     private final ContactService contactService;
+    @GetMapping
+    public ResponseEntity<String> testNgRok(){
+        return ResponseEntity.ok("You are inside contact with ngrok");
+    }
+
     @PostMapping("/addContact")
     public ResponseEntity<ContactResponse> addContact(@RequestBody ContactRequest contactRequest){
         return new ResponseEntity<>(contactService.create(contactRequest) , HttpStatus.OK) ;
